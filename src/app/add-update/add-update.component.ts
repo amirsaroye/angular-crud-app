@@ -11,7 +11,7 @@ import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 })
 export class AddUpdateComponent implements OnInit {
 
-  @ViewChild('myForm') myForm!: NgForm;
+  @ViewChild('empForm') empForm: NgForm;
   
   public emp: Employee = {
     name: '',    
@@ -51,7 +51,7 @@ export class AddUpdateComponent implements OnInit {
         let isSubmitted = this.apiService.sendForm(this.emp);
 
         if(isSubmitted){
-          this.myForm.reset();
+          this.empForm.reset();
           alert('Form submitted successfully');
 
           this.router.navigate(['/home']);

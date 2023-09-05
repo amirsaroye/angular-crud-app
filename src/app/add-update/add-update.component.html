@@ -1,7 +1,7 @@
 <div class="container mt-4">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+            <form #empForm="ngForm" (ngSubmit)="submitForm(empForm)">
                
                 <div class="form-gorup">
                     <label for="name">Name</label>
@@ -31,7 +31,7 @@
                 
                 <br>
                 <div class="form-gorup">
-                    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">{{submitBtnTxt}}</button>
+                    <button type="submit" [disabled]="empForm.invalid" class="btn btn-primary">{{submitBtnTxt}}</button>
                     <a routerLink="/home" class="btn btn-secondary">Cancel</a>
                 </div>
             
