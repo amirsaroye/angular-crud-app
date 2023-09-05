@@ -1,0 +1,41 @@
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+               
+                <div class="form-gorup">
+                    <label for="name">Name</label>
+                    <input required ngModel name="name" id="name" type="text" [(ngModel)]="emp.name" class="form-control" #nameField="ngModel" [class.err]="nameField.invalid && nameField.touched">
+
+                    <div *ngIf="nameField.invalid && nameField.touched" class="alert alert-danger">
+                        Please enter name
+                    </div>
+                </div> 
+                
+                <div class="form-gorup">
+                    <label for="department">Department</label>
+                    <input required [(ngModel)]="emp.department" name="department" id="department" #department="ngModel" type="text" class="form-control" [class.err]="department.invalid && department.touched">
+                    
+                    <div *ngIf="department.invalid && department.touched" class="alert alert-danger">
+                        Please enter department
+                    </div>
+                </div>
+               
+                <div class="form-gorup">
+                    <label for="salary">Salary</label>
+                    <input required ngModel name="salary" id="salary" type="number"  [(ngModel)]="emp.salary" #salary="ngModel" class="form-control" [class.err]="salary.invalid && salary.touched">
+                    <div *ngIf="salary.invalid && salary.touched" class="alert alert-danger">
+                        Please enter salary
+                    </div>
+                </div>
+                
+                <br>
+                <div class="form-gorup">
+                    <button type="submit" [disabled]="myForm.invalid" class="btn btn-primary">{{submitBtnTxt}}</button>
+                    <a routerLink="/home" class="btn btn-secondary">Cancel</a>
+                </div>
+            
+            </form>
+        </div>
+    </div>
+</div>

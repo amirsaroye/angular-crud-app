@@ -1,0 +1,39 @@
+
+<div class="container">
+    <h1>Employee Table</h1>
+    <div *ngIf="fetchedEmployees.length">
+        <select name="departmentFilter" (change)="filterDepartments($event)">
+            <option>Department Filter</option>
+            <option *ngFor="let dept of uniqueDepartments" val="dept" >{{ dept }}</option>
+        </select>
+    </div>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>S No</th>
+                <th>Name</th>
+                <th>Department</th>
+                <th class="button-like" (click)="sortSalary()">Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let emp of fetchedEmployees">
+                <td>{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.department}}</td>
+                <td>{{emp.salary}}</td>
+                <td>
+                    <button class="btn btn-warning" (click)="updateEmp(emp.id)">Update</button>
+                    <button class="btn btn-danger" (click)="deleteEmp(emp.id)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="text-center">
+        <div *ngIf="!fetchedEmployees.length">
+            No data found
+        </div>
+      <a class="btn btn-primary" [routerLink]="['/add']">Add New Entry</a>
+    </div>
+</div>
